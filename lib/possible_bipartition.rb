@@ -1,3 +1,5 @@
+# Time complexity:O(n) - visiting each node in the graph once, searching in sets is O(1)
+# Space complexity: O(n) - the sets can be filled up based on the content of the dislikes
 require 'set'
 def possible_bipartition(dislikes)
   return true if dislikes.empty?
@@ -34,5 +36,4 @@ def possible_bipartition(dislikes)
   end
 
   true
-
 end
