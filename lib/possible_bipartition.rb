@@ -8,10 +8,8 @@ def possible_bipartition(dislikes)
     # go to the index and check if its dislikes are not in group_b
   # return false if all four checks failed 
   queue = [ 0 ]
-  if dislikes[0].empty?
-    queue << 1
-  end
-
+  queue << 1 if dislikes[0].empty?
+  
   until queue.empty?
     puppy = queue.shift
     if !blocked_a.include?(puppy) && group_a.intersection(dislikes[puppy]).empty?
