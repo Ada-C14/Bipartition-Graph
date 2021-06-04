@@ -1,31 +1,37 @@
 
-def possible_bipartition(dislikes)
-  dog_group1 = []
-  dog_group2 = []
 
-  dislikes.each_with_index do |enemies, dog|
-    safe1 = true
-    safe2 = true
-    enemies.each do |enemy|
-      if dog_group1.include?(enemy)
-        safe1 = false
-      elsif dog_group2.include?(enemy)
-        safe2 = false
+def possible_bipartition(dislikes)
+  
+
+  dislikes.length.times do |dog|
+    p dog
+    dog_groups = []
+    dog_groups[dog] = 1 #assign 1st dog to a group
+    queue = []
+    queue << dog
+
+    until queue.empty?
+      current = queue.shift #takes 1st element off the queue
+
+      current_group = dog_groups[current]
+    
+      enemies = dislikes[current]
+      #loops through each enemy and check wether it's in the same group as current dog; if so, move it to opposite group
+      enemies.each do |enemy|
+        if dog_groups[enemy] == nil
+          queue << enemy
+          if current_group == 1
+            dog_groups[enemy] = 2
+          else
+            dog_groups[enemy] = 1
+          end
+        #if bipartition is not possible, return false
+        elsif dog_groups[enemy] == current_group
+          return false
+        end
       end
     end
-      
-    if safe1
-      dog_group1 << dog
-      #dog_group2 << enemy
-    elsif safe2
-      dog_group2 << dog
-    else
-      return false
-    end
+  
   end
   return true
 end
-
-
-
-#breadth first solution
