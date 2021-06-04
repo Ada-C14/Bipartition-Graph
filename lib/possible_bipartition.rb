@@ -36,10 +36,7 @@ def possible_bipartition(dislikes)
     
     bad_neighbors = dislikes[current_dog]
 
-<<<<<<< HEAD
     # if dog does not dislike other dogs, add next, unvisited dog in list to queue
-=======
->>>>>>> 998a6b43603bbc69d3d2efbc2c405520fd41908a
     if bad_neighbors.empty?
       next_dog = current_dog + 1
 
