@@ -1,4 +1,8 @@
 # DFS
+# time complexity: O(v+e), it visits every node (v) and its edges (e). 
+#                          If there is a circle, it would visit the relative edges twice and that's how it finds out not bipartitionable happen.
+# space complexity: O(v), v is the number of nodes, because the variables marked and groups depend on the number of the nodes.
+#                         Also, the worst case of dfs recursion is to call v stacks to dig into the graph. 
 def possible_bipartition(dislikes)
   marked = {}
   groups = {}
