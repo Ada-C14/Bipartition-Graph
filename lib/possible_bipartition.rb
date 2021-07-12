@@ -6,14 +6,10 @@
 # create a queue to use to check dog dislikes
 # when happen upon current dog, add to visited
 # for each current dog, assign it's disliked dogs to a group
-# [1, 0, 1, 1, 0, ] - group_nums
-# current_dog = 3
-# disliked_dog = 1
-# [0, 1, 2, 3] - seen before
-# [4] - q
 
-# time:
-# space:
+# time: O(E + N)?
+# space: O(N)
+require 'set'
 
 def possible_bipartition(dislikes)
 
@@ -24,7 +20,7 @@ def possible_bipartition(dislikes)
   q.enq(0)
   seen_before = Set.new
 
-  while !q.empty?
+  while !q.empty?                     
     current_dog = q.deq
     if !seen_before.include?(current_dog)
       seen_before.add(current_dog)
